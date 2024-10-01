@@ -12,6 +12,18 @@ abstract class Person{
     protected $experince;
     protected $email;
 
+
+    public function __construct(){
+        $this->name = '';   
+        $this->id = '';
+        $this->educationLevel = '';
+        $this->grade = '';
+        $this->age = '';
+        $this->Speciality = '';
+        $this->salary = '';
+        $this->experince = '';
+        $this->email = '';
+    }
 }
 
 
@@ -29,7 +41,7 @@ class Students extends Person{
             $students[$id]=array();
         }
 
-        $students[$id][]=array('name'=>$name,"id"=>$id,"education_level"=>$educationLevel,"grade"=>$grade,"age"=>$age,"specializition"=>$Speciality,);
+        $students["Students"][]=array('name'=>$name,"id"=>$id,"education_level"=>$educationLevel,"grade"=>$grade,"age"=>$age,"specializition"=>$Speciality,);
 
     }
     public function deleteStudent(&$students,$id){
@@ -54,7 +66,7 @@ class Professors extends Person{
             $professors[$id]=array();
         }
 
-        $professors[$id][]=array('name'=>$name,"id"=>$id,"age"=>$age,"specializition"=>$Speciality,"salary"=>$salary,"experince"=>$experince,"email"=>$email,);
+        $professors["Peofrssors"][]=array('name'=>$name,"id"=>$id,"age"=>$age,"specializition"=>$Speciality,"salary"=>$salary,"experince"=>$experince,"email"=>$email,);
 
     }
     public function deleteTeacher(&$professors,$id){
@@ -66,7 +78,7 @@ class Professors extends Person{
 //======================================================================
 class Managers extends Person{
     public $managers=array();
-    public function addManager(&$professors,$name,$id,$age,$Speciality,$salary,$experince,$email){
+    public function addManager(&$manager,$name,$id,$age,$Speciality,$salary,$experince,$email){
         $this->id=$id;
         $this->name=$name;
         $this->age=$age;
@@ -75,16 +87,16 @@ class Managers extends Person{
         $this->experince=$experince;
         $this->email=$email;
         
-        if(!isset($professors[$id])){
-            $professors[$id]=array();
+        if(!isset($manager[$id])){
+            $manager[$id]=array();
         }
 
-        $professors[$id][]=array('name'=>$name,"id"=>$id,"age"=>$age,"specializition"=>$Speciality,"salary"=>$salary,"experince"=>$experince,"email"=>$email,);
+        $manager['Managers'][]=array('name'=>$name,"id"=>$id,"age"=>$age,"specializition"=>$Speciality,"salary"=>$salary,"experince"=>$experince,"email"=>$email,);
 
     }
-    public function deleteManager(&$professors,$id){
-        if(isset($professors[$id])){
-            unset($professors[$id]);
+    public function deleteManager(&$manager,$id){
+        if(isset($manager[$id])){
+            unset($manager[$id]);
         }
     }
 }
